@@ -14,10 +14,12 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                   {{ __('You are logged in!') }}
+                <div class="mt-4">
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-danger">
+                            Cerrar Sesión
+                        </button>
+                    </form>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection
