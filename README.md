@@ -37,11 +37,19 @@ DETALLE_PROYECTO_EMP (Tabla Intermedia): Diseñada para descomponer la relación
 1. **Clonar el repositorio:**
    ```bash
    git clone [https://github.com/Xt-Andrey/proyectos-empleados.git](https://github.com/Xt-Andrey/proyectos-empleados.git)
-   cd proyectos-empleados
-   composer install
-   npm install
-   php artisan key:generate
-   php artisan migrate
-   php artisan serve
-
    
+   cd proyectos-empleados
+   
+   composer install
+   
+   npm install
+   
+   php artisan key:generate
+   
+   php artisan migrate
+   
+"Abrir pagina web"
+   composer run dev 
+
+"actualizar basse de datos"
+  php artisan migrate
