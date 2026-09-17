@@ -1,60 +1,40 @@
-# proyectos-empleados
- 
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Proyectos y Empleados
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Sistema de gestión integral para el control de proyectos corporativos y administración de personal, desarrollado con una interfaz moderna y minimalista.
 
-## About Laravel
+## Características Principales
+* **Autenticación Moderna:** Vistas de Login, Registro y Recuperación de Contraseña rediseñadas por completo con **Tailwind CSS** (estética de tarjetas limpias, gradientes oscuros y efectos glass-morphism).
+* **Panel de Control (Dashboard):** Interfaz centralizada para usuarios autenticados con gestión de sesiones y accesos rápidos al sistema.
+* **Diseño UI/UX Uniforme:** Experiencia de usuario coherente en todo el módulo de accesos sin componentes heredados de Bootstrap.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Stack Tecnológico
+* **Backend:** Laravel / PHP 8.3
+* **Base de Datos:** SQLite
+* **Frontend / Estilos:** Tailwind CSS
+* **Control de Versiones:** Git y GitHub (`Xt-Andrey/proyectos-empleados.git`)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Requisitos del Sistema
+* PHP >= 8.3
+* Composer
+* Node.js y NPM
+* Git
+## MER IMAGEN 
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+![alt text](image.png)
 
-## Learning Laravel
+## Estructura y Diseño del Modelo Entidad-Relación (MER)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Para dar solución a la gestión de personal y proyectos dentro de la organización, se diseñó un modelo relacional normalizado que evita redundancias y elimina bucles o relaciones recursivas innecesarias. La arquitectura se compone de tres entidades principales:
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+EMPLEADOS: Contiene la información personal y laboral de cada trabajador. Su identificador principal es # id_empleado, y almacena atributos descriptivos como el nombre, apellido, correo electrónico, cargo, fecha de contratación y dirección.
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+PROYECTOS : Agrupa los datos generales asociados a cada iniciativa corporativa mediante la llave primaria # id_proyecto, registrando detalles como el nombre del proyecto, descripción, fechas de inicio y fin, presupuesto y estado actual.    
 
-## Agentic Development
+DETALLE_PROYECTO_EMP (Tabla Intermedia): Diseñada para descomponer la relación de muchos a muchos ($N:M$) original entre empleados y proyectos en dos relaciones limpias de uno a muchos ($1:N$). Posee su propio identificador # id_asignacion, incorpora las llaves foráneas correspondientes y almacena métricas específicas de la vinculación, tales como el rol desempeñado, las horas asignadas y la fecha de asignación.
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+## Guía de Instalación y Configuración Paso a Paso
 
-```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
-```
-
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+1. **Clonar el repositorio:**
+   ```bash
+   git clone [https://github.com/Xt-Andrey/proyectos-empleados.git](https://github.com/Xt-Andrey/proyectos-empleados.git)
+   cd proyectos-empleados
