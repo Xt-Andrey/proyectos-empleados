@@ -9,7 +9,7 @@ Sistema de gestión integral para el control de proyectos corporativos y adminis
 
 ## Stack Tecnológico
 * **Backend:** Laravel / PHP 8.3
-* **Base de Datos:** SQLite
+* **Base de Datos:** mysql
 * **Frontend / Estilos:** Tailwind CSS
 * **Control de Versiones:** Git y GitHub (`Xt-Andrey/proyectos-empleados.git`)
 
