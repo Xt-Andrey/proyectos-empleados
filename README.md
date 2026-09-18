@@ -58,40 +58,40 @@ DETALLE_PROYECTO_EMP (Tabla Intermedia): Diseñada para descomponer la relación
    
 4. **Instalar composer:**
    ```bash
-   composer install
+    composer install
 
 5. **Intalas npm:**
    ```bash
-   npm install
+    npm install
    
 6. ****
    ```bash
-   php artisan key:generate
+    php artisan key:generate
 
 7. **Migrar datos a la base de datos:**
    ```bash
-   php artisan migrate
+    php artisan migrate
    
 8. **Abrir pagina web:**
    ```bash
-   composer run dev 
+    composer run dev 
 
 9. **actualizar basse de datos:**
    ```bash  
-   php artisan migrate
+    php artisan migrate
 
 10. **Para refrescar/reiniciar la base de datos:**
   ```bash
-   php artisan migrate:fresh
+    php artisan migrate:fresh
 
 11. **Para refrescar/reiniciar la base de datos**
   ```bash
-   php artisan migrate:rollback
+    php artisan migrate:rollback
 
 12. **Para ver el estado actual de tus migraciones (cuáles se han ejecutado y cuáles están pendientes):**
   ```bash
-  php artisan migrate:status
-  
+   php artisan migrate:status
+ 
 
 
 
