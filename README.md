@@ -32,24 +32,43 @@ PROYECTOS : Agrupa los datos generales asociados a cada iniciativa corporativa m
 
 DETALLE_PROYECTO_EMP (Tabla Intermedia): Diseñada para descomponer la relación de muchos a muchos ($N:M$) original entre empleados y proyectos en dos relaciones limpias de uno a muchos ($1:N$). Posee su propio identificador # id_asignacion, incorpora las llaves foráneas correspondientes y almacena métricas específicas de la vinculación, tales como el rol desempeñado, las horas asignadas y la fecha de asignación.
 
+## 📋 Requisitos del Sistema
+
+### Requisitos Funcionales
+* **RF01 - Gestión de Proyectos:** El sistema debe permitir registrar, consultar, actualizar y eliminar proyectos, almacenando su código único, nombre, descripción, fechas de inicio y fin, presupuesto y estado.
+* **RF02 - Gestión de Empleados:** El sistema debe permitir administrar el directorio del personal, registrando nombre, apellido, correo electrónico único, cargo, fecha de contratación y dirección.
+* **RF03 - Asignación de Recursos:** El sistema debe permitir asociar empleados a proyectos a través de la tabla intermedia, guardando detalles específicos como el rol en el proyecto, las horas asignadas y la fecha de asignación.
+* **RF04 - Consulta de Relaciones:** El sistema debe permitir visualizar qué empleados participan en un proyecto determinado, así como los proyectos en los que trabaja un empleado específico.
+
+### Requisitos No Funcionales
+* **RNF01 - Integridad de Datos:** La base de datos debe garantizar la integridad referencial mediante el uso de llaves foráneas y restricciones en las migraciones de Laravel.
+* **RNF02 - Rendimiento:** Las consultas entre modelos deben optimizarse mediante la carga ansiosa (*eager loading*) de Eloquent para evitar sobrecargas en la base de datos (problema N+1).
+* **RNF03 - Arquitectura y Mantenibilidad:** El código backend debe seguir estrictamente el patrón arquitectónico Modelo-Vista-Controlador (MVC) propio de Laravel.
+* **RNF04 - Seguridad y Acceso:** El acceso a los módulos de gestión y administración de datos debe estar protegido mediante mecanismos de autenticación y control de rutas.
+
 ## Guía de Instalación y Configuración Paso a Paso
 
 1. **Clonar el repositorio:**
    ```bash
    git clone [https://github.com/Xt-Andrey/proyectos-empleados.git](https://github.com/Xt-Andrey/proyectos-empleados.git)
    
+2. **Abrir carpeta de proyecto:**
    cd proyectos-empleados
    
+4. **Instalar composer:**
    composer install
-   
+
+5. **Intalas npm:**
    npm install
    
    php artisan key:generate
-   
+
+6. **Migrar datos a la base de datos:**
    php artisan migrate
    
-"Abrir pagina web"
+7. **Abrir pagina web:**
+   ```bash
    composer run dev 
 
-"actualizar basse de datos"
+8. **actualizar basse de datos:**
   php artisan migrate
