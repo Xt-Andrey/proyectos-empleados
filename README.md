@@ -79,3 +79,6 @@ DETALLE_PROYECTO_EMP (Tabla Intermedia): Diseñada para descomponer la relación
 9. **actualizar basse de datos:**
    ```bash  
    php artisan migrate
+
+
+# todo el contenido encontrado se a realizado con fines educativos 
