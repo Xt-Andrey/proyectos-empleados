@@ -80,5 +80,19 @@ DETALLE_PROYECTO_EMP (Tabla Intermedia): Diseñada para descomponer la relación
    ```bash  
    php artisan migrate
 
+10. **Para refrescar/reiniciar la base de datos:**
+  ```bash
+   php artisan migrate:fresh
+
+11. **Para refrescar/reiniciar la base de datos**
+  ```bash
+   php artisan migrate:rollback
+
+12. **Para ver el estado actual de tus migraciones (cuáles se han ejecutado y cuáles están pendientes):**
+  ```bash
+  php artisan migrate:status
+  
+
+
 
 # todo el contenido encontrado se a realizado con fines educativos 
