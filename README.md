@@ -53,22 +53,29 @@ DETALLE_PROYECTO_EMP (Tabla Intermedia): Diseñada para descomponer la relación
    git clone [https://github.com/Xt-Andrey/proyectos-empleados.git](https://github.com/Xt-Andrey/proyectos-empleados.git)
    
 2. **Abrir carpeta de proyecto:**
+   ```bash
    cd proyectos-empleados
    
 4. **Instalar composer:**
+   ```bash
    composer install
 
 5. **Intalas npm:**
+   ```bash
    npm install
    
+6. ****
+   ```bash
    php artisan key:generate
 
-6. **Migrar datos a la base de datos:**
+7. **Migrar datos a la base de datos:**
+   ```bash
    php artisan migrate
    
-7. **Abrir pagina web:**
+8. **Abrir pagina web:**
    ```bash
    composer run dev 
 
-8. **actualizar basse de datos:**
-  php artisan migrate
+9. **actualizar basse de datos:**
+   ```bash  
+   php artisan migrate
