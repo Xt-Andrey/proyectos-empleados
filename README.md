@@ -20,8 +20,8 @@ Sistema de gestión integral para el control de proyectos corporativos y adminis
 * Git
 ## MER IMAGEN 
 
-![alt text](image.png)
 
+![alt text](image-1.png)
 ## Estructura y Diseño del Modelo Entidad-Relación (MER)
 
 Para dar solución a la gestión de personal y proyectos dentro de la organización, se diseñó un modelo relacional normalizado que evita redundancias y elimina bucles o relaciones recursivas innecesarias. La arquitectura se compone de tres entidades principales:
@@ -79,7 +79,7 @@ DETALLE_PROYECTO_EMP (Tabla Intermedia): Diseñada para descomponer la relación
 9. **actualizar basse de datos:**
    ```bash  
     php artisan migrate
-
+    
 10. **Para refrescar/reiniciar la base de datos:**
   ```bash
     php artisan migrate:fresh
