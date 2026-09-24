@@ -64,7 +64,7 @@ DETALLE_PROYECTO_EMP (Tabla Intermedia): Diseñada para descomponer la relación
    ```bash
     npm install
    
-6. ****
+6. **migraciones**
    ```bash
     php artisan key:generate
 
