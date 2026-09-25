@@ -13,30 +13,15 @@ class ProjectEmployeeDetail extends Model
     use HasFactory;
     protected $table = 'project_employee_details';
     protected $primaryKey = 'id';
-
-    protected static function boot()
+        public function employee()
     {
-        parent::boot();
-
-        static::creating(function ($model) {
-            if (auth()->check() && empty($model->registered_by)) {
-                $model->registered_by = auth()->id();
-            }
-        });
-    }
-
-    public function employee()
-    {
-        return $this->belongsTo(Employees::class, 'employee_id');
+        return $this->belongsTo(Employee::class, 'employee_id');
     }
 
     public function project()
     {
-        return $this->belongsTo(Projects::class, 'project_id');
-    }
-
-    public function registeredBy()
-    {
-        return $this->belongsTo(User::class, 'registered_by');
+        return $this->belongsTo(Project::class, 'project_id');
     }
 }
+
+

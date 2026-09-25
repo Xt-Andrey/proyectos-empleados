@@ -7,38 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 #[Fillable(['id_project', 'project_name', 'description', 'start_date', 'end_date', 'budget', 'status', 'registered_by'])]
-#[Hidden(['registered_by'])]
-class Projects extends Model
+#[Hidden(['registered_by', 'status'])]
+class Project extends Model
 {
     use HasFactory;
     protected $table = 'projects';
     protected $primaryKey = 'id';
 
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::creating(function ($model) {
-            if (auth()->check() && empty($model->registered_by)) {
-                $model->registered_by = auth()->id();
-            }
-        });
-    }
-
     public function projectEmployeeDetails()
     {
         return $this->hasMany(ProjectEmployeeDetail::class, 'project_id');
     }
-
-    public function employees()
-    {
-        return $this->belongsToMany(Employees::class, 'project_employee_details', 'project_id', 'employee_id')
-            ->withPivot('project_role', 'assigned_hours', 'assignment_date')
-            ->withTimestamps();
-    }
-
-    public function registeredBy()
-    {
-        return $this->belongsTo(User::class, 'registered_by');
-    }
 }
+
