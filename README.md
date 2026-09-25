@@ -19,7 +19,7 @@ Sistema de gestión integral para el control de proyectos corporativos y adminis
 * Node.js y NPM
 * Git
 ## MER IMAGEN 
-![alt text](image-3.png)
+![alt text](image.png)
 
 ## Estructura y Diseño del Modelo Entidad-Relación (MER)
 

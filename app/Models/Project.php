@@ -4,23 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
+#[Fillable(['id_project', 'project_name', 'description', 'start_date', 'end_date', 'budget', 'status', 'registered_by'])]
+#[Hidden(['registered_by'])]
 class Projects extends Model
 {
     use HasFactory;
-
     protected $table = 'projects';
-
-    protected $fillable = [
-        'id_project',
-        'project_name',
-        'description',
-        'start_date',
-        'end_date',
-        'budget',
-        'status',
-        'registered_by',
-    ];
+    protected $primaryKey = 'id';
 
     protected static function boot()
     {

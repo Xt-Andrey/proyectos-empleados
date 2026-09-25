@@ -19,7 +19,7 @@ return new class extends Migration
             $table->dateTime('start_date');
             $table->dateTime('end_date');
             $table->decimal('budget', 15, 2);
-            $table->string('status');
+            $table->string('status')->default('boolean');
             $table->foreignId('registered_by');
             
             $table->timestamps();

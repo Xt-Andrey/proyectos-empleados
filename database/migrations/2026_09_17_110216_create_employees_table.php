@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('job_title');
             $table->dateTime('hire_date');
             $table->string('address')->nullable();
-            $table->string('status')->default('active'); 
+            $table->string('status')->default('boolean'); 
             $table->foreignId('registered_by');
             $table->timestamps();
         });

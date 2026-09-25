@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('project_employee_details', function (Blueprint $table) {
             $table->id();
             
-            $table->foreignId('employee_id')->constrained('employees')->cascadeOnDelete();
-            $table->foreignId('project_id')->constrained('projects')->cascadeOnDelete();
+            $table->foreignId('employee_id')->constrained('employees');
+            $table->foreignId('project_id')->constrained('projects');
             
             $table->string('project_role');
             $table->integer('assigned_hours');
