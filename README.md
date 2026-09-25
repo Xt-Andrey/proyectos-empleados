@@ -102,7 +102,7 @@ El sistema gestiona el ciclo operativo de proyectos y asignación de personal a 
     
 10. **Para refrescar/reiniciar la base de datos:**
   ```bash
-      
+       php artisan migrate:fresh
 
 11. **Para refrescar/reiniciar la base de datos**
   ```bash
