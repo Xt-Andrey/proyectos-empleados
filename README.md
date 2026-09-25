@@ -115,4 +115,3 @@ El sistema gestiona el ciclo operativo de proyectos y asignación de personal a 
 
 
 
-## todo el contenido encontrado se a realizado con fines educativos 
