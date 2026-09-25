@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Project_employee_details extends Model
+class ProjectEmployeeDetail extends Model
 {
     use HasFactory;
 
@@ -17,7 +17,19 @@ class Project_employee_details extends Model
         'project_role',
         'assigned_hours',
         'assignment_date',
+        'registered_by',
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            if (auth()->check() && empty($model->registered_by)) {
+                $model->registered_by = auth()->id();
+            }
+        });
+    }
 
     public function employee()
     {
@@ -27,5 +39,10 @@ class Project_employee_details extends Model
     public function project()
     {
         return $this->belongsTo(Projects::class, 'project_id');
+    }
+
+    public function registeredBy()
+    {
+        return $this->belongsTo(User::class, 'registered_by');
     }
 }

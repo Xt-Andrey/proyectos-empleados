@@ -12,13 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('employees', function (Blueprint $table) {
-            $table->id(); // id_empleado (PK)
-            $table->string('name'); // nombre
-            $table->string('last_name'); // apellido
-            $table->string('email')->nullable()->unique(); // email
-            $table->string('job_title'); // cargo
-            $table->dateTime('hire_date'); // fecha_contratacion
-            $table->string('address')->nullable(); // direccion
+            $table->id();
+            $table->string('name');
+            $table->string('last_name');
+            $table->string('email')->nullable()->unique();
+            $table->string('job_title');
+            $table->dateTime('hire_date');
+            $table->string('address')->nullable();
+            $table->string('status')->default('active'); 
+            $table->foreignId('registered_by');
             $table->timestamps();
         });
     }

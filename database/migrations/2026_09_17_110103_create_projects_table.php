@@ -12,14 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('projects', function (Blueprint $table) {
-            $table->id(); // id_proyecto (PK)
+            $table->id();
             $table->string('id_project')->unique();
-            $table->string('project_name'); // nombre_proyecto
-            $table->text('description')->nullable(); // descripcion
-            $table->dateTime('start_date'); // fecha_inicio
-            $table->dateTime('end_date'); // fecha_fin
-            $table->decimal('budget', 15, 2); // presupuesto
-            $table->string('status'); // estado
+            $table->string('project_name');
+            $table->text('description')->nullable();
+            $table->dateTime('start_date');
+            $table->dateTime('end_date');
+            $table->decimal('budget', 15, 2);
+            $table->string('status');
+            $table->foreignId('registered_by');
+            
             $table->timestamps();
         });
     }

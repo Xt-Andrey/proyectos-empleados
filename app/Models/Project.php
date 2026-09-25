@@ -19,17 +19,34 @@ class Projects extends Model
         'end_date',
         'budget',
         'status',
+        'registered_by',
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            if (auth()->check() && empty($model->registered_by)) {
+                $model->registered_by = auth()->id();
+            }
+        });
+    }
 
     public function projectEmployeeDetails()
     {
-        return $this->hasMany(Project_employee_details::class, 'project_id');
+        return $this->hasMany(ProjectEmployeeDetail::class, 'project_id');
     }
 
     public function employees()
     {
         return $this->belongsToMany(Employees::class, 'project_employee_details', 'project_id', 'employee_id')
-                    ->withPivot('project_role', 'assigned_hours', 'assignment_date')
-                    ->withTimestamps();
+            ->withPivot('project_role', 'assigned_hours', 'assignment_date')
+            ->withTimestamps();
+    }
+
+    public function registeredBy()
+    {
+        return $this->belongsTo(User::class, 'registered_by');
     }
 }

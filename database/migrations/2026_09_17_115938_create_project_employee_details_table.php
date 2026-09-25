@@ -12,16 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('project_employee_details', function (Blueprint $table) {
-            $table->id(); // id_asignacion (PK)
+            $table->id();
             
-            // Relaciones (Foreign Keys) hacia employees y projects
-            $table->foreignId('employee_id')->constrained('employees')->onDelete('cascade'); // id_empleado
-            $table->foreignId('project_id')->constrained('projects')->onDelete('cascade'); // id_proyecto
+            $table->foreignId('employee_id')->constrained('employees')->cascadeOnDelete();
+            $table->foreignId('project_id')->constrained('projects')->cascadeOnDelete();
             
-            // Atributos específicos del diagrama de detalle
-            $table->string('project_role'); // rol_en_proyecto
-            $table->integer('assigned_hours'); // horas_asignadas
-            $table->dateTime('assignment_date'); // fecha_asignacion
+            $table->string('project_role');
+            $table->integer('assigned_hours');
+            $table->dateTime('assignment_date');
+            $table->foreignId('registered_by');
             
             $table->timestamps();
         });

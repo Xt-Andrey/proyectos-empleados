@@ -19,9 +19,8 @@ Sistema de gestión integral para el control de proyectos corporativos y adminis
 * Node.js y NPM
 * Git
 ## MER IMAGEN 
+![alt text](image-3.png)
 
-
-![alt text](image-1.png)
 ## Estructura y Diseño del Modelo Entidad-Relación (MER)
 
 Para dar solución a la gestión de personal y proyectos dentro de la organización, se diseñó un modelo relacional normalizado que evita redundancias y elimina bucles o relaciones recursivas innecesarias. La arquitectura se compone de tres entidades principales:
@@ -31,6 +30,27 @@ EMPLEADOS: Contiene la información personal y laboral de cada trabajador. Su id
 PROYECTOS : Agrupa los datos generales asociados a cada iniciativa corporativa mediante la llave primaria # id_proyecto, registrando detalles como el nombre del proyecto, descripción, fechas de inicio y fin, presupuesto y estado actual.    
 
 DETALLE_PROYECTO_EMP (Tabla Intermedia): Diseñada para descomponer la relación de muchos a muchos ($N:M$) original entre empleados y proyectos en dos relaciones limpias de uno a muchos ($1:N$). Posee su propio identificador # id_asignacion, incorpora las llaves foráneas correspondientes y almacena métricas específicas de la vinculación, tales como el rol desempeñado, las horas asignadas y la fecha de asignación.
+
+## ⚙️ Procesos de Negocio
+
+El sistema gestiona el ciclo operativo de proyectos y asignación de personal a través de los siguientes flujos de negocio principales:
+
+### 1. Gestión y Registro de Empleados
+* **Alta de Empleado:** El personal administrativo o un usuario autorizado registra la información del empleado (nombre, apellido, correo, cargo, fecha de contratación, etc.).
+* **Auditoría Automática:** El sistema captura automáticamente el ID del usuario que realizó el registro mediante el campo `registered_by`.
+* **Estado Operativo:** Los empleados cuentan con un estado (`status`) que permite mantener un control activo o inactivo dentro de la organización.
+
+### 2. Gestión del Ciclo de Vida de los Proyectos
+* **Creación de Proyectos:** Se registran nuevos proyectos especificando un código único (`id_project`), nombre, descripción, presupuesto y las fechas clave de inicio y fin (`start_date`, `end_date`).
+* **Control de Asignación:** Al igual que los empleados, cada proyecto almacena la trazabilidad de quién lo creó (`registered_by`) y su estado actual en el sistema (`status`).
+
+### 3. Asignación de Empleados a Proyectos (Detalle)
+* **Vinculación Many-to-Many:** Los proyectos pueden tener múltiples empleados asignados, y un empleado puede participar en varios proyectos.
+* **Atributos de Asignación (Pivot):** Cada asignación se registra en una tabla intermedia que almacena datos específicos de esa relación:
+  * Rol que desempeñará el empleado en el proyecto (`project_role`).
+  * Horas asignadas para la labor (`assigned_hours`).
+  * Fecha en la que se realizó la asignación (`assignment_date`).
+* **Integridad y Cascada:** Las relaciones están configuradas con eliminación en cascada (`cascadeOnDelete`), lo que garantiza que si un empleado o proyecto es eliminado, sus registros de asignación asociados se limpien de forma automática para evitar datos huérfanos.
 
 ## 📋 Requisitos del Sistema
 
@@ -82,7 +102,7 @@ DETALLE_PROYECTO_EMP (Tabla Intermedia): Diseñada para descomponer la relación
     
 10. **Para refrescar/reiniciar la base de datos:**
   ```bash
-    php artisan migrate:fresh
+      
 
 11. **Para refrescar/reiniciar la base de datos**
   ```bash
