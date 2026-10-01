@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 #[Fillable(['employee_id', 'project_id', 'project_role', 'assigned_hours', 'assignment_date', 'registered_by'])]
 #[Hidden(['registered_by'])]

@@ -18,7 +18,14 @@ class EmployeeFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => $this->faker->firstName(),
+            'last_name' => $this->faker->lastName(),
+            'email' => $this->faker->unique()->safeEmail(),
+            'job_title' => $this->faker->jobTitle(),
+            'hire_date' => $this->faker->dateTime(),
+            'address' => $this->faker->address(),
+            'status' => $this->faker->boolean(),
+            'registered_by' => 1,
         ];
     }
 }
